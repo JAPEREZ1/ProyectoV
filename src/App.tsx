@@ -13,6 +13,26 @@ const App: React.FC = () => {
     return Math.floor(Math.random() * 100) + 1;
   }
 
+  const createConfetti = () => {
+    for (let i = 0; i < 50; i++) {
+      const confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.animationDuration = Math.random() * 2 + 1 + "s";
+      confetti.style.backgroundColor = getRandomColor();
+      document.body.appendChild(confetti);
+
+      setTimeout(() => {
+        confetti.remove();
+      }, 2000);
+    }
+  };
+
+  const getRandomColor = (): string => {
+    const colors = ["#ff69b4", "#ffe600", "#28a745", "#646cff", "#f94144"];
+    return colors[Math.floor(Math.random() * colors.length)];
+  };
+
   const handleGuess = () => {
     const guess = parseInt(userGuess);
 
@@ -34,6 +54,13 @@ const App: React.FC = () => {
       setFeedback('El número es muy alto.');
     } else {
       setFeedback(`¡Correcto! El número era ${randomNumber}.`);
+      onGuess(true);  // Activar celebración al acertar
+    }
+  };
+
+  const onGuess = (correct: boolean) => {
+    if (correct) {
+      createConfetti();
     }
   };
 
