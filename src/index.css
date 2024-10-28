@@ -19,7 +19,7 @@ body {
   justify-content: center;
   min-width: 320px;
   min-height: 100vh;
-  background: url('Imagenes/ciberespacio-luces-neon_3840x2160_xtrafondos.com.jpg') center/cover no-repeat, #1f1f2e;
+  background: url('https://image.slidesdocs.com/responsive-images/background/design-ready-gaming-arcade-console-with-blank-screen-3d-rendering-on-blue-powerpoint-background_2b071b0c6d__960_540.jpg') center/cover no-repeat, #1f1f2e;
   color: #ffffff;
   overflow: hidden;
   position: relative;
@@ -47,13 +47,12 @@ h1 {
   z-index: 1;
 }
 
-/* Mensaje resaltado */
 .result {
   font-size: 1.5em;
   font-weight: 700;
   padding: 1em;
   color: #ffffff;
-  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro con opacidad */
+  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 8px;
   text-align: center;
   max-width: 80%;
@@ -101,11 +100,31 @@ button:focus-visible {
   font-weight: 600;
   color: #ffe600;
   padding: 0.8em;
-  background: rgba(0, 0, 0, 0.8); /* Fondo oscuro para resaltar */
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 8px;
   margin-top: 10px;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos para confeti */
+.confetti {
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  opacity: 0.8;
+  border-radius: 50%;
+  animation: fall 2s linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
 }
 
 @media (prefers-color-scheme: light) {
